@@ -1,3 +1,8 @@
+/**
+ * IMPORTANT NOTE: 
+ *  url only needs '../' and NOT '../../', because this file is imported into;
+ *  _typography.scss, and then _main.scss, therefore path is relative to _main.scss...
+ */
 /*
 @font-face {
   font-family: Example;
@@ -7,3 +12,4 @@
   font-style: normal;
 }
 */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');

@@ -1,0 +1,35 @@
+.block-quote-section {
+
+  .block-quote-section-content-container {
+    padding: $bodyPadding0;
+
+    .block-quote-section-content {
+      font-size: 3.75em; // ~60px
+    }
+  }
+
+  // Align left
+  &.content-placement-left {
+    margin: $bodyPadding0 $bodyPadding0 $bodyPadding0 0;
+  }
+  // Align right
+  &.content-placement-right {
+    margin: $bodyPadding0 0 $bodyPadding0 $bodyPadding0;
+  }
+  // Dark blue background, with lime green text
+  &.background-color-dark-blue {
+    .block-quote-section-content-container {
+      .block-quote-section-content {
+        color: $limeGreen;
+      }
+    }
+  }
+  // Medium gray background, with dark green text
+  &.background-color-medium-gray {
+    .block-quote-section-content-container {
+      .block-quote-section-content {
+        color: $darkGreen;
+      }
+    }
+  }
+}

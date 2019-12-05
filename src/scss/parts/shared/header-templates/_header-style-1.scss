@@ -1,13 +1,34 @@
 header#header-style-1 {
+  position: absolute;
+  width: 100%;
+  
   .torque-header-content-wrapper {
+    padding: 33px $bodyPadding1 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    .torque-header-logo-wrapper {
+      flex: 1;
+
+      div {
+        width: auto;
+      }
+    }
 
     .torque-header-burger-menu-wrapper {
+      align-self: flex-end;
+
       @include respond-to(desktop) {
         display: none;
       }
     }
 
     .torque-header-menu-items-inline-wrapper {
+      align-self: flex-end;
+      
       @include respond-to-max(desktop) {
         display: none;
       }

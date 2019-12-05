@@ -2,18 +2,57 @@
 @import "../partials/variables";
 
 body {
+  background: white;
+  color: $grayFour;
+  font-family: 'Montserrat', sans-serif;
+  font-size: $fontBody;
+  font-weight: 400;
+}
+
+button,
+input,
+select,
+optgroup,
+textarea {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $darkBlue;
 }
 
 h1 {
+  font-size: 4.375em; // ~70px
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 h2 {
+  font-size: 3.75em; // ~60px
+  font-weight: 700;
+  letter-spacing: 3.43px;
 }
 
 h3 {
+  font-size: 3.125em; // ~50px
+  font-weight: 500;
+  letter-spacing: 2.86px;
 }
 
 h4 {
+  font-size: 2.5em; // ~40px
+  font-weight: 500;
+  letter-spacing: 2.29px;
+}
+
+h5 {
+  font-size: 1.875em; // ~30px
+  font-weight: 500;
 }
 
 a {

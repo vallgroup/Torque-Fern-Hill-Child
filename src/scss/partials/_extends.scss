@@ -1,0 +1,176 @@
+%imageSizeHero {
+  position: relative;
+  padding-bottom: 80%;
+  width: 100%;
+  height: 0;
+
+  @include respond-to(tablet) {
+    padding-bottom: 65%;
+  }
+
+  @include respond-to(desktop) {
+    padding-bottom: 50%;
+  }
+
+  .hero-image-size {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+}
+
+%useGreenArrowDownRight {
+  position: absolute;
+
+  left: auto;
+  right: -120px;
+  top: calc(100% - 42px);
+
+  height: 150%;
+  width: 18%;
+
+  background-image: url("../statics/images/arrow-bottom.png");  
+  background-size: contain;
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  
+  z-index: 10;
+}
+
+%useGreenArrowRight {
+  content: '';
+  position: relative;
+  display: inline-block;
+
+  height: 30px;
+  width: 30px;
+
+  margin-right: 15px;
+  margin-bottom: -9.5px;
+
+  background-image: url("../statics/images/arrow.png");
+  background-size: contain;
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+%useGreenStainRight {
+  content: '';
+  position: relative;
+  display: block;
+
+  height: 38px;
+  width: 100%;
+  max-width: 252px;
+
+  margin-left: -20%;
+
+  background-image: url("../statics/images/right-stain.png");
+  background-size: contain;
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+%useGreenCtaStyle {
+  display: inline-block;
+  margin-top: 10px;
+  color: $limeGreen;
+  font-size: 0.9375em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.94px;
+  padding: 5px;
+}
+
+%useHoverSlideContentStyle {
+  color: $white;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  max-width: 274px;
+}
+
+%blueBtnWithGreenText {
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.94px;
+  -webkit-appearance: none !important;
+  background-color: #2e424a;
+  color: $limeGreen;
+  border-radius: 0 !important;
+  border: none;
+  display: inline-block;
+  text-align: left;
+  text-transform: uppercase;
+  padding: 14px 25px 14px 55px;
+  background-image: url("../statics/images/arrow.png"); 
+  background-repeat: no-repeat;
+  background-position-x: 15px;
+  background-position-y: center;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+// %imageSize {
+//   position: relative;
+//   padding-bottom: 80%;
+//   width: 100%;
+//   height: 0;
+
+//   @include respond-to(tablet) {
+//     padding-bottom: 65%;
+//   }
+
+//   @include respond-to(desktop) {
+//     padding-bottom: 50%;
+//   }
+// }
+
+// %imageInner {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+// }
+
+// %useLoadMoreButtonStyle {
+//   margin: 0 auto 75px;
+
+//   font-family: $font_primary;
+//   font-size: 26px;
+//   font-weight: 500;
+//   font-style: normal;
+//   font-stretch: normal;
+//   line-height: 2.42;
+//   letter-spacing: normal;
+//   text-align: center;
+//   color: $light-green;
+//   text-transform: uppercase;
+
+//   background-color: transparent;
+//   border-color: transparent;
+
+//   &:hover {
+//     color: $medium-green;
+//   }
+// }

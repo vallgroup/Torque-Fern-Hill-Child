@@ -1,0 +1,115 @@
+.hover-slide-section {
+  position: relative;
+  overflow: hidden;
+
+  .green-bar-top {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 92px;
+    box-sizing: border-box;
+    padding: 25px $bodyPadding1 0;
+    background-color: $limeGreen70;
+
+    .hover-slide-project-container {
+      position: absolute;
+      bottom: -10px;
+
+      .project-title {
+        color: $darkBlue;
+        font-weight: 600;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+      }
+      .project-name {
+        color: $white;
+        margin: 0 auto 0 0;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .hover-slide-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.6s ease-in-out;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &.initial-image {}
+
+    &.hover-image {
+      left: -100%;
+    }
+  }
+
+  .hover-slide-content-container {
+    position: relative;
+    padding: $bodyPadding0 $bodyPadding1;
+
+    .hover-slide-title {
+      width: 50%;
+
+      h2 {
+        color: $white;
+      }
+    }
+
+    .hover-slide-content-inner-container {
+      width: 50%;
+
+      .hover-slide-content {
+        @extend %useHoverSlideContentStyle;
+        
+        .hover-slide-cta {
+          @extend %useGreenCtaStyle;
+          
+          &.green-arrow-right:before {
+            @extend %useGreenArrowRight;
+          }
+        }
+      }
+    }
+
+    &.align-title-left {
+      .hover-slide-title {
+        margin: 0 auto 0 0;
+      }
+
+      .hover-slide-content-inner-container {
+        margin: -5% 0 0 auto;
+
+        .hover-slide-content {
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
+    }
+
+    &.align-title-right {
+      .hover-slide-title {
+        margin: 0 0 0 auto;
+      }
+
+      .hover-slide-content-inner-container {
+        margin: -5% auto 0 0;
+      }
+    }
+  }
+
+  // On hover show hover background image
+  &:hover {
+
+    .hover-slide-image {
+      &.hover-image {
+        left: 0;
+      }
+    }
+  }
+}

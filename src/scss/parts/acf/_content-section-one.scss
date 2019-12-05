@@ -1,0 +1,35 @@
+.content-section-one {
+  text-align: center;
+  padding: $bodyPadding0 $bodyPadding1;
+
+  .content-section-one-title {
+
+    h3 {
+      color: $limeGreen;
+    }
+  }
+
+  .content-section-one-content {
+    width: 100%;
+    max-width: 576px;
+    margin: 0 auto 15px;
+
+    p {
+      color: $white;
+    }
+  }
+
+  .content-section-one-cta {
+    @extend %useGreenCtaStyle;
+
+    &.green-arrow-right:before {
+      @extend %useGreenArrowRight;
+    }
+  }
+
+  .content-section-one-image {
+    width: 100%;
+    max-width: 975px;
+    margin: 45px auto 0;
+  }
+}

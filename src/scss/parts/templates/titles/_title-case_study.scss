@@ -1,0 +1,17 @@
+.case-study-hero-section {
+  text-align: center;
+  padding: $bodyPadding1 $bodyPadding1 2vw;
+
+  .case-study-title {
+    margin: 56px auto 30px;
+  }
+
+  .case-study-featured-image-wrapper {
+    width: 100%;
+    
+    .case-study-featured-image {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

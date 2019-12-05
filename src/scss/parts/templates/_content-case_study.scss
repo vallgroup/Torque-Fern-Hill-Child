@@ -1,0 +1,33 @@
+.case-study-sub-nav-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  border-top: solid 2px $darkBlue;
+  border-bottom: solid 2px $darkBlue;
+
+  background-color: $grayFive;
+
+  .sub-nav-item {
+    flex: 1;
+
+    color: $grayThree;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+
+    padding: 14px 10px 10px;
+
+    transition: 0.2s;
+    
+    cursor: pointer;
+
+    &.active, &:hover {
+      color: $limeGreen;
+      background-color: $darkBlue;
+    }
+  }
+}

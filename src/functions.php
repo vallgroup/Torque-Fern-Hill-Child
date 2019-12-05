@@ -4,6 +4,7 @@ require_once( get_stylesheet_directory() . '/includes/torque-fern-hill-nav-menus
 require_once( get_stylesheet_directory() . '/includes/widgets/torque-fern-hill-widgets-class.php');
 require_once( get_stylesheet_directory() . '/includes/customizer/torque-fern-hill-customizer-class.php');
 require_once( get_stylesheet_directory() . '/includes/acf/torque-fern-hill-acf-class.php');
+require_once( get_stylesheet_directory() . '/includes/cpts/torque-fern-hill-case-study-cpt-class.php');
 
 /**
  * Child Theme Nav Menus
@@ -33,8 +34,25 @@ if ( class_exists( 'Fern_Hill_Customizer' ) ) {
  * Child Theme ACF
  */
 
- if ( class_exists( 'Fern_Hill_ACF' ) ) {
-   new Fern_Hill_ACF();
+if ( class_exists( 'Fern_Hill_ACF' ) ) {
+  new Fern_Hill_ACF();
+}
+
+
+/**
+ * Listing CPT
+ */
+
+if ( class_exists( 'Fern_Hill_Case_Study_CPT' ) ) {
+  new Fern_Hill_Case_Study_CPT();
+}
+
+
+ /**
+  * Filtered Loop plugin settings
+  */
+ if ( class_exists( 'Torque_Filtered_Loop' ) && class_exists( 'Torque_Filtered_Loop_Shortcode' ) ) {
+   add_filter( Torque_Filtered_Loop_Shortcode::$LOOP_TEMPLATE_FILTER_HANDLE, function() { return "2"; } );
  }
 
 
@@ -98,6 +116,17 @@ function torque_enqueue_child_scripts() {
         wp_get_theme()->get('Version'),
         true       // put it in the footer
     );
+}
+
+
+/**
+ * Customise the Jetpack 'Successful Submission' message
+ */
+add_filter( 'grunion_contact_form_success_message', 'jetpackcom_contact_confirmation' );
+function jetpackcom_contact_confirmation() {
+  // Add new confirmation message here:
+  $conf = __( '<div class="contact-form-success-message">Thank you! Our team will respond as soon as possible.</div>', 'plugin-textdomain' );
+  return $conf;
 }
 
 ?>
