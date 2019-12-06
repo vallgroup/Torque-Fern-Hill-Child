@@ -48,14 +48,12 @@ if ( class_exists( 'Fern_Hill_Case_Study_CPT' ) ) {
 }
 
 
- /**
-  * Filtered Loop plugin settings
-  */
- if ( class_exists( 'Torque_Filtered_Loop' ) && class_exists( 'Torque_Filtered_Loop_Shortcode' ) ) {
-   add_filter( Torque_Filtered_Loop_Shortcode::$LOOP_TEMPLATE_FILTER_HANDLE, function() { return "2"; } );
- }
-
-
+/**
+* Filtered Loop plugin settings
+*/
+if ( class_exists( 'Torque_Filtered_Loop' ) && class_exists( 'Torque_Filtered_Loop_Shortcode' ) ) {
+  add_filter( Torque_Filtered_Loop_Shortcode::$LOOP_TEMPLATE_FILTER_HANDLE, function() { return "2"; } );
+}
 
 
 /**
@@ -127,6 +125,17 @@ function jetpackcom_contact_confirmation() {
   // Add new confirmation message here:
   $conf = __( '<div class="contact-form-success-message">Thank you! Our team will respond as soon as possible.</div>', 'plugin-textdomain' );
   return $conf;
+}
+
+
+/**
+ * Map Settings
+ */
+if ( class_exists( 'Torque_Map_Controller' ) ) {
+  add_filter( Torque_Map_Controller::$DISPLAY_POIS_FILTER , function() { return false; });
+  add_filter( Torque_Map_Controller::$API_KEY_FILTER , function() { 
+    return get_field( 'google_maps_api_key', 'options' );
+  });
 }
 
 ?>

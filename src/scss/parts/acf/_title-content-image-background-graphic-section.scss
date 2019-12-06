@@ -1,0 +1,150 @@
+.title-content-image-background-graphic-section {
+  display: flex;
+  padding: 0 $bodyPadding1;
+  position: relative;
+
+  .full-width-background-graphic {
+    z-index: 1;
+  }
+
+  .section-content-container {
+    padding: $bodyPadding0 $bodyPadding0 0;
+    z-index: 2;
+
+    .section-title-container {
+
+      .section-title {
+        margin: 0 auto 30px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+    }
+
+    .section-sub-title-wrapper {
+
+      .section-sub-title {
+        margin: 0 auto 30px;
+        font-weight: 300;
+        font-style: italic;
+      }
+    }
+
+    .section-content-wrapper {
+      max-width: 80%;
+      margin: 0 auto 36px;
+    }
+  }
+  
+  .section-image-container {
+    text-align: center;
+    margin: 0 auto $bodyPadding-1;
+    z-index: 2;
+
+    .section-image {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+    }
+  }
+
+  // Background & text colors
+  &.background-color-gray {
+    .section-title {
+      color: $darkGreen;
+    }
+    .section-sub-title {
+      color: $darkBlue;
+    }
+    .section-content-wrapper > p {
+      color: $grayFour;
+    }
+  }
+  &.background-color-dark-blue {
+    .section-title {
+      color: $brightGreen;
+    }
+    .section-sub-title {
+      color: $white;
+    }
+    .section-content-wrapper > p {
+      color: $white;
+    }
+  }
+
+  // Image placement
+  &.image-placement-left {
+    flex-direction: row-reverse;
+
+    .full-width-background-graphic {
+      @include fullWidthBackgroundGraphic(right, top);
+    }
+
+    .section-content-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-bottom: $bodyPadding0;
+
+      .section-content-wrapper {
+        margin-left: 0;
+      }
+    }
+
+    .section-image-container {
+      flex: 1;
+      margin: $bodyPadding0 auto $bodyPadding-1;
+    }
+  }
+  &.image-placement-right {
+    flex-direction: row;
+
+    .full-width-background-graphic {
+      @include fullWidthBackgroundGraphic(center, center);
+    }
+
+    .section-content-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: $bodyPadding0;
+
+      .section-content-wrapper {
+        margin-left: 0;
+      }
+    }
+
+    .section-image-container {
+      flex: 1;
+      margin: $bodyPadding0 auto $bodyPadding-1;
+    }
+  }
+  &.image-placement-top {
+    flex-direction: column-reverse;
+
+    .full-width-background-graphic {
+      @include fullWidthBackgroundGraphic(left, bottom);
+    }
+
+    .section-content-container {
+      padding: 0 $bodyPadding0 $bodyPadding0;
+      text-align: center;
+    }
+
+    .section-image-container {
+      margin: $bodyPadding1 auto $bodyPadding-1;
+    }
+  }
+  &.image-placement-bottom {
+    flex-direction: column;
+
+    .full-width-background-graphic {
+      @include fullWidthBackgroundGraphic(left, bottom);
+    }
+
+    .section-content-container {
+      text-align: center;
+    }
+  }
+}

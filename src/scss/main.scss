@@ -9,6 +9,7 @@
 
 // mixins
 @import 'partials/mixins/image-sizes';
+@import 'partials/mixins/full-width-background-graphic';
 
 // typography
 @import 'typography/typography';
@@ -33,5 +34,8 @@
 // acf - case studies
 @import 'parts/acf/anchor-end-point';
 @import 'parts/acf/image-text-section';
+@import 'parts/acf/title-content-section';
 @import 'parts/acf/stats-text-section';
 @import 'parts/acf/block-quote-section';
+@import 'parts/acf/title-content-image-background-graphic-section';
+@import 'parts/acf/map-section';
