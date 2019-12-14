@@ -43,8 +43,8 @@
   background-position-x: right;
   background-position-y: center;
   background-repeat: no-repeat;
-  
-  z-index: 10;
+  // TODO add extend
+  z-index: 9;
 }
 
 %useGreenArrowRight {
@@ -65,7 +65,7 @@
   background-repeat: no-repeat;
 }
 
-%useGreenStainRight {
+%useGreenStain {
   content: '';
   position: relative;
   display: block;
@@ -76,11 +76,18 @@
 
   margin-left: -20%;
 
-  background-image: url("../statics/images/right-stain.png");
   background-size: contain;
   background-position-x: right;
   background-position-y: center;
   background-repeat: no-repeat;
+}
+%useGreenStainRight {
+  @extend %useGreenStain;
+  background-image: url("../statics/images/right-stain.png");
+}
+%useGreenStainLeft {
+  @extend %useGreenStain;
+  background-image: url("../statics/images/left-stain.png");
 }
 
 %useGreenCtaStyle {

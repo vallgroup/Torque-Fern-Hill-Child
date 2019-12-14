@@ -1,33 +1,83 @@
 .case-study-sub-nav-container {
+  display: none;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  text-align: center;
 
-  border-top: solid 2px $darkBlue;
-  border-bottom: solid 2px $darkBlue;
+  @include respond-to(tablet) {
+    display: block;
+    font-size: 0;
+  }
 
-  background-color: $grayFive;
+  @include respond-to(desktop) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
 
   .sub-nav-item {
-    flex: 1;
+    display: none;
+    padding: 10px 10px 8px;
+    transition: 0.2s;
+
+    border: solid 1px $darkBlue;
+    background-color: $grayFive;
 
     color: $grayThree;
-    font-size: 1em;
+    font-size: initial;
     font-weight: 500;
     text-align: center;
     text-transform: uppercase;
 
-    padding: 14px 10px 10px;
+    @include respond-to(tablet) {
+      display: inline-block;
+      min-width: 140px;
+      margin-left: -1px;
+      margin-top: -1px;
+    }
 
-    transition: 0.2s;
+    @include respond-to(desktop) {
+      flex: 1 1 100%;
+      min-width: unset;
+      padding: 14px 10px 10px;
+    }
     
     cursor: pointer;
 
     &.active, &:hover {
       color: $brightGreen;
       background-color: $darkBlue;
+    }
+  }
+
+  &.fixed-nav {
+    position: fixed;
+    z-index: 9;
+
+    // buffer for header bar
+    top: $headerHeightMobile + 1px;
+
+    @include respond-to(tablet) {
+      top: $headerHeightTablet + 1px;
+    }
+    @include respond-to(desktop) {
+      top: $headerHeightDesktop + 1px;
+    }
+  }
+}
+// with WP admin bar
+body.admin-bar {
+  .case-study-sub-nav-container {
+    &.fixed-nav {
+      // buffer for header bar
+      top: $headerHeightMobile + 1px + 46px;
+
+      @include respond-to(tablet) {
+        top: $headerHeightTablet + 1px + 46px;
+      }
+      @include respond-to(desktop) {
+        top: $headerHeightDesktop + 1px + 32px;
+      }
     }
   }
 }

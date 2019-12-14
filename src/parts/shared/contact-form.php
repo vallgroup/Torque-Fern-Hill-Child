@@ -8,7 +8,7 @@ $content = get_field( 'content', 'options' );
 
 ?>
 
-<section id="contact-form" class="contact-form-section">
+<section id="lets-talk" class="contact-form-section">
 
 <?php // Title
 if ( $title ) { ?>

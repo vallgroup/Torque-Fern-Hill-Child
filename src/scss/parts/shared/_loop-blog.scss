@@ -1,0 +1,38 @@
+.posts-wrapper {
+  display: block;
+  width: 100%;
+
+  .loop-post {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 $bodyPadding0;
+    text-align: left;
+
+    .featured-image-wrapper {
+      @include imageSize('wide');
+    }
+
+    .content-wrapper {
+
+      h5 {
+        color: $darkBlue;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .excerpt {
+        line-height: 1.38;
+        margin-bottom: 15px;
+      }
+
+      a > button {
+        @extend %blueBtnWithGreenText;
+        margin-top: 0px;
+        background-position-x: 15px;
+        padding-left: 55px;
+      }
+    }
+  }
+}

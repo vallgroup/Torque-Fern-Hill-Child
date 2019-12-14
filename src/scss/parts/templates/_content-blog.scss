@@ -1,0 +1,39 @@
+.blog-listings {
+  // hide the superfluous elements
+  .torque-custom-filter-dropdown,
+  .post-terms-wrapper,
+  .torque-filtered-loop-load-more {
+    display: none !important;
+  }
+
+  .posts-wrapper {
+    .loop-post {
+      padding: 0 $bodyPadding0 $bodyPadding2;
+
+      @include respond-to(desktop) {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 0 $bodyPadding0 $bodyPadding0;
+
+        &:nth-child(2n + 1) {
+          flex-direction: row;
+        }
+      }
+
+      // image container
+      > a {
+        width: 100%;
+      }
+
+      // content container
+      .content-wrapper {
+        padding: 20px 0 0;
+
+        @include respond-to(tablet) {
+          padding-left: $bodyPadding0;
+          padding-right: $bodyPadding0;
+        }
+      }
+    }
+  }
+}

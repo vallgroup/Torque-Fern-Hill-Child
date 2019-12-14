@@ -1,24 +1,14 @@
-<?php
-
-// $background_color = isset($tq_header_style_1_color) && $tq_header_style_1_color !== ''
-//   ? $tq_header_style_1_color
-//   : 'inherit';
-
-$logo_dark_light = isset($tq_header_style_1_logo) && $tq_header_style_1_logo === 'white' ? 'white' : 'dark';
-
-$extra_classes = isset($tq_header_style_1_classes) ? $tq_header_style_1_classes : '';
-
-?>
-
 <header
   id="header-style-1"
-  class="torque-header <?php echo $extra_classes; ?>">
+  class="torque-header">
 
   <div class="row torque-header-content-wrapper torque-navigation-toggle">
 
     <div class="torque-header-logo-wrapper">
       <?php get_template_part( 'parts/shared/logo', 'white'); ?>
     </div>
+
+    <?php get_search_form(); ?>
 
     <div class="torque-header-burger-menu-wrapper">
       <?php get_template_part( 'parts/elements/element', 'burger-menu-squeeze'); ?>
@@ -35,4 +25,3 @@ $extra_classes = isset($tq_header_style_1_classes) ? $tq_header_style_1_classes 
   </div>
 
 </header>
-

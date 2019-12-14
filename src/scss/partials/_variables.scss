@@ -14,8 +14,15 @@ $darkGreen: #207b28;
 $MobileMaxWidth: 767px;
 $TabletMaxWidth: 1023px;
 
+// header heights
+$headerHeightMobile: 70px;
+$headerHeightTablet: 172px;
+$headerHeightDesktop: 158px;
+
 // font sizes
-$fontBody: 16px;
+$fontBodyMobile: 14px;
+$fontBodyTablet: 16px;
+$fontBodyDesktop: 16px;
 
 // padding
 $bodyPadding-1: 3vw;

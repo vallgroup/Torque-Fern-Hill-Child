@@ -3,7 +3,7 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
 
-  padding: 35px $bodyPadding2 0;
+  padding: 35px $bodyPadding0 0;
   box-sizing: border-box;
 
   background-color: $darkBlue;
@@ -34,15 +34,18 @@ footer {
 
     @include respond-to(desktop) {}
 
-    &.footer-logo {
+    &.footer-logo-container {
       box-sizing: border-box;
+      flex-basis: 100%;
+      text-align: center;
 
       @include respond-to(tablet) {
-        padding-right: 50px;
       }
 
       @include respond-to(desktop) {
-        flex-basis: 10%;
+        flex-basis: 33%;
+        text-align: left;
+        padding-right: 50px;
       }
 
       img {
@@ -52,7 +55,7 @@ footer {
         object-fit: contain;
 
         @include respond-to(tablet) {
-          max-width: 130px;
+          max-width: 300px;
         }
 
         @include respond-to(desktop) {
@@ -60,65 +63,74 @@ footer {
           max-width: 250px;
         }
       }
-    }
 
-    .contact-details {
-      color: $grayOne;
-      font-size: 0.875em;
-      margin-top: 25px;
-    }
-
-    .torque-custom-filter-dropdown,
-    .post-terms-wrapper,
-    .torque-filtered-loop-load-more {
-      display: none !important;
-    }
-  
-    .posts-wrapper {
-      display: block;
-      width: 100%;
-  
-      .loop-post {
-        width: 100%;
-        box-sizing: border-box;
-        padding-left: 15px;
-        padding-right: 15px;
-        text-align: left;
-  
-        .featured-image-wrapper {
-          @include imageSize('wide');
-        }
-    
-        .content-wrapper {
-  
-          h5 {
-            color: $grayOne;
-            font-size: 1.5em;
-            text-transform: uppercase;
-            margin-top: 10px;
-            margin-bottom: 10px;
-          }
-  
-          .excerpt {
-            line-height: 1.38;
-          }
-    
-          a > button {
-            @extend %blueBtnWithGreenText;
-            margin-top: 0px;
-            background-position-x: 0px;
-            padding-left: 40px;
-          }
-        }
+      .footer-contact-details {
+        color: $grayOne;
+        font-size: 0.875em;
+        margin-top: 25px;
       }
     }
 
-    &.footer-latest-work {
-      
-    }
-
+    &.footer-latest-work,
     &.footer-blog-post {
+      flex-basis: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: $bodyPadding1;
+
+      @include respond-to(tablet) {
+        flex-basis: 45%;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 0;
+      }
+      @include respond-to(desktop) {
+        flex-basis: 25%;
+      }
+
+      .footer-col-title {
+        text-transform: uppercase;
+        color: $grayThree;
+        font-weight: 700;
+        text-align: left;
+
+        &:after {
+          @extend %useGreenStainLeft;
+          margin-left: -5%;
+        }
+      }
+
+      // hide the superfluous elements
+      .torque-custom-filter-dropdown,
+      .post-terms-wrapper,
+      .torque-filtered-loop-load-more {
+        display: none !important;
+      }
+    
+      .posts-wrapper {
+        .loop-post {
+          padding: 1vw 0 0 0;
+
+          @include respond-to(tablet) {
+            padding: 1vw 0 0 0;
+          }
+
+          @include respond-to(desktop) {
+            padding: 1vw 3vw 0 0;
+          }
+
+          .content-wrapper {
+            h5 {
+              color: $grayOne;
+            }
       
+            a > button {
+              background-position-x: 0px;
+              padding-left: 40px;
+            }
+          }
+        }
+      } 
     }
   }
 
@@ -131,7 +143,7 @@ footer {
 
     border-top: 1px solid $grayOne;
 
-    width: 100%;
+    flex-basis: 100%;
   }
 }
 

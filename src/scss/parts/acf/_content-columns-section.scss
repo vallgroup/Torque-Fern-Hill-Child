@@ -1,0 +1,57 @@
+.content-columns-section {
+  background-color: $grayFive;
+  padding: $bodyPadding1 $bodyPadding0;
+
+  .col-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .col-wrapper {
+      max-width: 400px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    // column definitions
+    &.1-cols-per-row {
+      .col-wrapper {
+        flex: calc(100% / 1);
+      }
+    }
+    &.2-cols-per-row {
+      .col-wrapper {
+        flex: calc(100% / 2);
+      }
+    }
+    &.3-cols-per-row {
+      .col-wrapper {
+        flex: calc(100% / 3);
+      }
+    }
+    &.4-cols-per-row {
+      .col-wrapper {
+        flex: calc(100% / 4);
+      }
+    }
+    &.5-cols-per-row {
+      .col-wrapper {
+        flex: calc(100% / 5);
+      }
+    }
+    &.6-cols-per-row {
+      .col-wrapper {
+        flex: calc(100% / 6);
+      }
+    }
+  }
+
+  // background
+  &.background-graphic:after {
+    @include fullWidthBackgroundGraphic(100%, auto, center, center);
+  }
+}

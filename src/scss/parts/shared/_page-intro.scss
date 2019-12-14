@@ -1,0 +1,44 @@
+.page-intro {
+  background-color: #FFF;
+  margin-bottom: -1px; // fixes strange gap between sections
+  padding: ($headerHeightMobile + 0px) $bodyPadding1 20px;
+
+  @include respond-to(tablet) {
+    padding: ($headerHeightTablet + 0px) $bodyPadding1 50px;
+  }
+
+  @include respond-to(desktop) {
+    padding: ($headerHeightDesktop + 0px) $bodyPadding1 50px;
+  }
+
+  h1 {
+    max-width: 880px;
+    margin: 15px auto 0;
+    text-align: center;
+    letter-spacing: 1px;
+
+    @include respond-to(tablet) {
+    }
+  }
+
+  .page-intro-intro {
+    text-align: center;
+    line-height: 1.75;
+    margin-top: 27px;
+  }
+
+  &.type-none,
+  &.type- {
+    // use the padding to add buffer for header bar, but remove everything else
+    > * {
+      display: none;
+    }
+  }
+
+  &.background-color-white {
+    background-color: $white;
+  }
+  &.background-color-dark-blue {
+    background-color: $darkBlue;
+  }
+}

@@ -7,6 +7,7 @@ $shortcode .= 'filters_types="dropdown_tax,dropdown_date" ';
 $shortcode .= 'filters_args="category"';
 $shortcode .= ']';
 
-echo do_shortcode($shortcode);
-
 ?>
+<section class="blog-listings">
+  <?php echo do_shortcode($shortcode); ?>
+</section>

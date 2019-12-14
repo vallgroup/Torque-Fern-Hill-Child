@@ -1,43 +1,200 @@
 header#header-style-1 {
-  position: absolute;
-  width: 100%;
+  background-color: $white;
+  position: fixed;
+  width: 100vw;
+  height: $headerHeightMobile;
+  z-index: 10;
+
+  @include respond-to(tablet) {
+    height: $headerHeightTablet;
+  }
+  @include respond-to(desktop) {
+    height: $headerHeightDesktop;
+  }
   
   .torque-header-content-wrapper {
-    padding: 33px $bodyPadding1 0;
-    width: 100%;
+    padding: 7px $bodyPadding1 12px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 
+    @include respond-to(tablet) {
+      width: 100vw;
+      flex-direction: column;
+      padding: 21px $bodyPadding1 20px;
+    }
+    @include respond-to(desktop) {
+      width: unset;
+      flex-direction: row;
+      padding: 33px $bodyPadding1 26px;
+    }
+
+    // Logo
     .torque-header-logo-wrapper {
       flex: 1;
+      text-align: left;
+
+      @include respond-to(tablet) {
+        text-align: center;
+      }
+      @include respond-to(desktop) {
+        text-align: left;
+      }
 
       div {
         width: auto;
       }
     }
 
+    // Mobile/burger menu toggle
     .torque-header-burger-menu-wrapper {
       align-self: flex-end;
+      padding: 0px 25px;
 
-      @include respond-to(desktop) {
+      @include respond-to(tablet) {
         display: none;
+      }
+
+      .torque-burger-menu {
+        transform: translateY(0%);
+
+        .torque-burger-menu-line {
+          background-color: $grayThree;
+        }
       }
     }
 
+    // Desktop/tablet menu
     .torque-header-menu-items-inline-wrapper {
       align-self: flex-end;
       
-      @include respond-to-max(desktop) {
+      @include respond-to-max(tablet) {
         display: none;
+      }
+      @include respond-to(tablet) {
+        width: 100%;
+        margin: 15px auto 0;
+      }
+      @include respond-to(desktop) {
+        width: auto;
+        margin: 0 auto 15px;
+      }
+
+      .torque-menu-items-inline {
+        @include respond-to(tablet) {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-evenly;
+        }
+
+        .torque-menu-item-wrapper {
+          color: $grayThree;
+
+          &:not(:last-child) {
+            margin-right: $bodyPadding-1;
+          }
+
+          &.parent {
+            position: relative;
+            padding-right: 20px;
+
+            .torque-menu-item-children-wrapper {
+              position: absolute;
+              top: 100%;
+              left: -12%;
+              width: auto;
+              min-width: 200px;
+              background-color: $white;
+              padding: 10px;
+              box-sizing: border-box;
+
+              border-bottom: 1px solid $grayOne;
+
+              transition: opacity .4s ease-in-out;
+              visibility: hidden;
+              opacity: 0;
+
+              z-index: 99;
+
+              .torque-menu-item-wrapper {
+                display: block;
+                text-align: left;
+                padding: 5px 10px;
+                margin: 0 auto 0 0;
+              }
+            }
+
+            // down arrow
+            &:after {
+              content: '\F347';
+              font-family: dashicons;
+              font-size: 1.2em;
+              position: absolute;
+              right: -2.5px;
+              top: 0;
+            }
+
+            &:hover {
+              .torque-menu-item-children-wrapper {
+                top: 100%;
+                visibility: visible;
+                opacity: 1;
+
+                .torque-menu-item-wrapper {
+                  display: block;
+                  text-align: left;
+                }
+              }
+            }
+          }
+
+          .torque-menu-item {
+            text-transform: uppercase;
+          }
+        }
       }
     }
   }
 
+  // Mobile menu
   .torque-header-menu-items-mobile {
-    @include respond-to(desktop) {
+    top: $headerHeightMobile;
+    background-color: $white;
+
+    @include respond-to(tablet) {
+      top: $headerHeightTablet;
       display: none;
     }
+    @include respond-to(desktop) {
+      top: $headerHeightDesktop;
+    }
+
+    .torque-menu-item {
+      text-transform: uppercase;
+    }
+  }
+}
+
+// Homepage header background color 
+.home {
+  header#header-style-1 {
+    background-color: $darkBlue !important;
+
+    .torque-header-content-wrapper {
+      .torque-header-menu-items-inline-wrapper {
+        .torque-menu-items-inline {
+          .torque-menu-item-wrapper {
+            .torque-menu-item-children-wrapper {
+              background-color: $darkBlue !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .torque-header-menu-items-mobile {
+    background-color: $darkBlue !important;
   }
 }

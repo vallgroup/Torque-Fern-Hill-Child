@@ -10,6 +10,7 @@
 // mixins
 @import 'partials/mixins/image-sizes';
 @import 'partials/mixins/full-width-background-graphic';
+@import 'partials/mixins/background-gradients';
 
 // typography
 @import 'typography/typography';
@@ -17,25 +18,31 @@
 // shared
 @import 'parts/shared/header-templates/header-style-1';
 @import 'parts/shared/footer';
+@import 'parts/shared/page-intro';
+@import 'parts/shared/loop-blog';
 @import 'parts/shared/contact-form';
 
 // templates
 @import 'parts/templates/content-case_study';
+@import 'parts/templates/content-blog';
 
 // template titles
 @import 'parts/templates/titles/title-case_study';
+@import 'parts/templates/titles/title-blog';
 
 // acf - pages
 @import 'parts/acf/hero-section-one';
+@import 'parts/acf/title-content-section';
+@import 'parts/acf/title-image-text-section';
 @import 'parts/acf/hover-slide-section';
 @import 'parts/acf/content-section-one';
 @import 'parts/acf/blog-grid-section';
+@import 'parts/acf/team-grid-section';
+@import 'parts/acf/block-quote-section';
+@import 'parts/acf/map-section';
+@import 'parts/acf/content-columns-section';
 
 // acf - case studies
 @import 'parts/acf/anchor-end-point';
-@import 'parts/acf/image-text-section';
-@import 'parts/acf/title-content-section';
 @import 'parts/acf/stats-text-section';
-@import 'parts/acf/block-quote-section';
 @import 'parts/acf/title-content-image-background-graphic-section';
-@import 'parts/acf/map-section';

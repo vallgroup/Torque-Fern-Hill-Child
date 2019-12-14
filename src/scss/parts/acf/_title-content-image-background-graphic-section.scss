@@ -1,7 +1,11 @@
 .title-content-image-background-graphic-section {
   display: flex;
-  padding: 0 $bodyPadding1;
   position: relative;
+  padding: 0 0;
+
+  @include respond-to(tablet) {
+    padding: 0 $bodyPadding1;
+  }
 
   .full-width-background-graphic {
     z-index: 1;
@@ -17,6 +21,11 @@
         margin: 0 auto 30px;
         font-weight: 900;
         text-transform: uppercase;
+        font-size: 2.5em;
+
+        @include respond-to(tablet) {
+          font-size: 2.86em;
+        }
       }
     }
 
@@ -26,6 +35,7 @@
         margin: 0 auto 30px;
         font-weight: 300;
         font-style: italic;
+
       }
     }
 
@@ -48,7 +58,16 @@
   }
 
   // Background & text colors
-  &.background-color-gray {
+  &.background-color-grayOne {
+    // default for left, right, top
+    &:not(.compact-view) {
+      @include backgroundGradient($grayOne, $white);
+    }
+    // Otherwise bottom
+    &:not(.compact-view).image-placement-bottom {
+      @include backgroundGradient($grayOne, $white, 'top');
+    }
+
     .section-title {
       color: $darkGreen;
     }
@@ -59,7 +78,15 @@
       color: $grayFour;
     }
   }
-  &.background-color-dark-blue {
+  &.background-color-darkBlue {
+    // default for left, right, top
+    &:not(.compact-view) {
+      @include backgroundGradient($darkBlue, $white);
+    }
+    // Otherwise bottom
+    &:not(.compact-view).image-placement-bottom {
+      @include backgroundGradient($darkBlue, $white, 'top');
+    }
     .section-title {
       color: $brightGreen;
     }
@@ -72,11 +99,20 @@
   }
 
   // Image placement
+  // left
   &.image-placement-left {
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
+    
+    @include respond-to(desktop) {
+      flex-direction: row-reverse;
+    }
 
     .full-width-background-graphic {
-      @include fullWidthBackgroundGraphic(right, top);
+      @include fullWidthBackgroundGraphic(auto, 60%, center, center);
+
+      @include respond-to(desktop) {
+        @include fullWidthBackgroundGraphic(100%, auto, 0, -5%);
+      }
     }
 
     .section-content-container {
@@ -93,14 +129,30 @@
 
     .section-image-container {
       flex: 1;
-      margin: $bodyPadding0 auto $bodyPadding-1;
+      margin: $bodyPadding2 $bodyPadding0 $bodyPadding0;
+
+      @include respond-to(tablet) {
+        margin: $bodyPadding0 auto $bodyPadding-1;
+      } 
+      @include respond-to(desktop) {
+        margin: $bodyPadding0 auto $bodyPadding-1;
+      }
     }
   }
+  // right
   &.image-placement-right {
-    flex-direction: row;
+    flex-direction: column;
+    
+    @include respond-to(desktop) {
+      flex-direction: row;
+    }
 
     .full-width-background-graphic {
-      @include fullWidthBackgroundGraphic(center, center);
+      @include fullWidthBackgroundGraphic(auto, 80%, left, center);
+
+      @include respond-to(desktop) {
+        @include fullWidthBackgroundGraphic(100%, auto, 0, -5%);
+      }
     }
 
     .section-content-container {
@@ -120,11 +172,16 @@
       margin: $bodyPadding0 auto $bodyPadding-1;
     }
   }
+  // top
   &.image-placement-top {
     flex-direction: column-reverse;
 
     .full-width-background-graphic {
-      @include fullWidthBackgroundGraphic(left, bottom);
+      @include fullWidthBackgroundGraphic(auto, 60%, left, center);
+
+      @include respond-to(desktop) {
+        @include fullWidthBackgroundGraphic(100%, auto, 0, -5%);
+      }
     }
 
     .section-content-container {
@@ -136,15 +193,45 @@
       margin: $bodyPadding1 auto $bodyPadding-1;
     }
   }
+  // bottom
   &.image-placement-bottom {
     flex-direction: column;
 
     .full-width-background-graphic {
-      @include fullWidthBackgroundGraphic(left, bottom);
+      @include fullWidthBackgroundGraphic(auto, 100%, left, center);
+      
+      @include respond-to(desktop) {
+        @include fullWidthBackgroundGraphic(80%, auto, left, bottom);
+      }
     }
 
     .section-content-container {
       text-align: center;
+    }
+  }
+
+  // Compact view (must appear last)
+  &.compact-view {
+    align-items: center;
+
+    .section-content-container {
+      margin: auto;
+      padding: $bodyPadding0;
+      
+      .section-content-wrapper {
+        margin: 0 auto 0 0;
+      }
+    }
+    .section-image-container {
+      margin: auto;
+      padding: $bodyPadding0;
+    }
+
+    &.background-color-grayOne {
+      background-color: $grayOne;
+    }
+    &.background-color-darkBlue {
+      background-color: $darkBlue;
     }
   }
 }

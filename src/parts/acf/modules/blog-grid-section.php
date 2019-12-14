@@ -26,8 +26,8 @@ if ( $title ) { ?>
   echo do_shortcode($shortcode);
 
   // Link to blog page
-  if ( $show_link_to_blog_archive && $link_text ) { ?>
-    <a class="blog-archive-link green-arrow-right" href="<?php echo get_post_type_archive_link( 'post' ); ?>"><?php echo $link_text; ?></a>
+  if ( $show_cta && !empty($cta) ) { ?>
+    <a class="blog-archive-link green-arrow-right" href="<?php echo $cta['url'] ?>"><?php echo $cta['title']; ?></a>
   <?php } ?>
 
 </section>

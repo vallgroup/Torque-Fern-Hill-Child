@@ -1,4 +1,16 @@
 .anchor-end-point {
+  display: block;
+  position: absolute;
   width: 100%;
   height: 0;
+  // Adds top offset buffer for header + sub-nav + space
+  margin-top: calc(-#{$headerHeightMobile} - 60px);
+
+  @include respond-to(tablet) {
+    margin-top: calc(-#{$headerHeightTablet} - 60px);
+  }
+
+  @include respond-to(desktop) {
+    margin-top: calc(-#{$headerHeightDesktop} - 60px);
+  }
 }

@@ -1,6 +1,5 @@
 <?php /* Template Name: Blog */ ?>
 
-
 <?php TQ::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
 <main>

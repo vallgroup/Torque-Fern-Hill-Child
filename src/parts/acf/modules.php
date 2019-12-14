@@ -16,9 +16,40 @@ if ( have_rows( $modules ) ):
         $title = get_sub_field( 'title' );
         $sub_title = get_sub_field( 'sub_title' );
         $show_arrow = get_sub_field( 'show_arrow' );
-        $background_color = get_sub_field( 'background_color' );
+        $background_color = get_sub_field( 'background_color' ); // returns name, not color code
 
         include locate_template( '/parts/acf/modules/hero-section_one.php' );
+
+        break;
+
+      case 'layout_spacer' :
+
+        $height_value = get_sub_field( 'height_value' );
+        $height_units = get_sub_field( 'height_units' );
+
+        include locate_template( '/parts/acf/modules/layout-spacer.php' );
+
+        break;
+
+      case 'title_content_section' :
+
+        $title = get_sub_field( 'title' );
+        $content = get_sub_field( 'content' );
+
+        include locate_template( '/parts/acf/modules/title-content-section.php' );
+
+        break;
+
+      case 'title_image_text_section' :
+
+        $title = get_sub_field( 'title' );
+        $sub_title = get_sub_field( 'sub_title' );
+        $content = get_sub_field( 'content' );
+        $image = get_sub_field( 'image' );
+        $image_placement = get_sub_field( 'image_placement' );
+        $enlarge_image = get_sub_field( 'enlarge_image' );
+
+        include locate_template( '/parts/acf/modules/title-image-text-section.php' );
 
         break;
 
@@ -34,6 +65,16 @@ if ( have_rows( $modules ) ):
 
         include locate_template( '/parts/acf/modules/hover-slide-section.php' );
 
+        break;
+
+      case 'block_quote_section' :
+  
+        $content = get_sub_field( 'content' );
+        $placement = get_sub_field( 'placement' );
+        $background_color = get_sub_field( 'background_color' );
+  
+        include locate_template( '/parts/acf/modules/block-quote-section.php' );
+  
         break;
 
       case 'content_section_one' :
@@ -54,11 +95,30 @@ if ( have_rows( $modules ) ):
 
         $title = get_sub_field( 'title' );
         $number_of_posts_to_display = get_sub_field( 'number_of_posts_to_display' );
-        $show_link_to_blog_archive = get_sub_field( 'show_link_to_blog_archive' );
-        $link_text = get_sub_field( 'link_text' );
+        $show_cta = get_sub_field( 'show_cta' );
+        $cta = get_sub_field( 'cta' );
 
         include locate_template( '/parts/acf/modules/blog-grid-section.php' );
 
+        break;
+
+      case 'team_grid_section' :
+  
+        $team_grid = get_sub_field( 'team_grid' );
+
+        include locate_template( '/parts/acf/modules/team-grid-section.php' );
+  
+        break;
+
+      case 'content_columns_section' :
+  
+        $background_graphic = get_sub_field( 'background_graphic' );
+        $background_offset = get_sub_field( 'background_offset' );
+        $columns = 'columns'; // repeater field, see template file below
+        $columns_per_row = get_sub_field( 'columns_per_row' );
+
+        include locate_template( '/parts/acf/modules/content-columns-section.php' );
+  
         break;
 
     }

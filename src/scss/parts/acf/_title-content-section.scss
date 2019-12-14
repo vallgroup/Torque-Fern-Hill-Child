@@ -10,10 +10,12 @@
     padding: 0 $bodyPadding0;
 
     .title-content-section-content {
-      font-size: 1.25em; // 20px
       line-height: 1.3;
-      max-width: 80%;
       margin: 0 auto;
+
+      @include respond-to(tablet) {
+        max-width: 80%;
+      }
     }
   }
 }

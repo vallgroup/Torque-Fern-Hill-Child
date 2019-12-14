@@ -1,0 +1,26 @@
+/**
+ * Mixin to define background gradient, based on parameter
+ * Primary color 
+ */
+@mixin backgroundGradient($primaryColor: $white, $secondaryColor: $white, $primaryColorPlacement: '') {
+
+  // Default option
+  $colorOne: $secondaryColor;
+  $colorTwo: $primaryColor;
+  $primaryPercentage: 30%;
+  $secondaryPercentage: 30%;
+
+  // Alternate option
+  @if ($primaryColorPlacement == 'top') {
+    $colorOne: $primaryColor;
+    $colorTwo: $secondaryColor;
+    $primaryPercentage: 70%;
+    $secondaryPercentage: 70%;
+  }
+
+  background: $colorOne;
+  background: -moz-linear-gradient(top,  $colorOne $primaryPercentage, $colorTwo $secondaryPercentage);
+  background: -webkit-linear-gradient(top,  $colorOne $primaryPercentage, $colorTwo $secondaryPercentage);
+  background: linear-gradient(to bottom, $colorOne $primaryPercentage, $colorTwo $secondaryPercentage); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$colorOne, endColorstr=$colorTwo ,GradientType=0 );
+}

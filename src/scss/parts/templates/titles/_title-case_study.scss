@@ -1,9 +1,19 @@
 .case-study-hero-section {
   text-align: center;
-  padding: $bodyPadding1 $bodyPadding1 2vw;
+  background-color: $white;
+  
+  padding: ($headerHeightMobile + 30px) 0 2vw;
+
+  @include respond-to(tablet) {
+    padding: ($headerHeightTablet + 30px) $bodyPadding1 2vw;
+  }
+
+  @include respond-to(desktop) {
+    padding: ($headerHeightDesktop + 30px) $bodyPadding1 2vw;
+  }
 
   .case-study-title {
-    margin: 56px auto 30px;
+    margin: 0 auto 30px;
   }
 
   .case-study-featured-image-wrapper {

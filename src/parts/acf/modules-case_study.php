@@ -34,19 +34,22 @@ if ( have_rows( $case_study_modules ) ):
         $title = get_sub_field( 'title' );
         $content = get_sub_field( 'content' );
 
-        include locate_template( '/parts/acf/modules-case_study/title-content-section.php' );
+        // NB: located in general modules folder
+        include locate_template( '/parts/acf/modules/title-content-section.php' );
 
         break;
 
-      case 'image_text_section' :
+      case 'title_image_text_section' :
 
         $title = get_sub_field( 'title' );
         $sub_title = get_sub_field( 'sub_title' );
         $content = get_sub_field( 'content' );
         $image = get_sub_field( 'image' );
         $image_placement = get_sub_field( 'image_placement' );
+        $enlarge_image = get_sub_field( 'enlarge_image' );
 
-        include locate_template( '/parts/acf/modules-case_study/image-text-section.php' );
+        // NB: located in general modules folder
+        include locate_template( '/parts/acf/modules/title-image-text-section.php' );
 
         break;
 
@@ -85,7 +88,7 @@ if ( have_rows( $case_study_modules ) ):
 
     case 'map_section' :
 
-      $map_id = get_sub_field( 'map_id' );
+      $map_id = get_sub_field( 'map' );
 
       // NB: located in general modules folder
       include locate_template( '/parts/acf/modules/map-section.php' );
@@ -96,10 +99,20 @@ if ( have_rows( $case_study_modules ) ):
 
       $title = get_sub_field( 'title' );
       $number_of_posts_to_display = get_sub_field( 'number_of_posts_to_display' );
-      $show_link_to_blog_archive = get_sub_field( 'show_link_to_blog_archive' );
-      $link_text = get_sub_field( 'link_text' );
+      $show_cta = get_sub_field( 'show_cta' );
+      $cta = get_sub_field( 'cta' );
 
+      // NB: located in general modules folder
       include locate_template( '/parts/acf/modules/blog-grid-section.php' );
+
+      break;
+
+    case 'team_grid_section' :
+
+      $team_grid = get_sub_field( 'team_grid' );
+
+      // NB: located in general modules folder
+      include locate_template( '/parts/acf/modules/team-grid-section.php' );
 
       break;
 

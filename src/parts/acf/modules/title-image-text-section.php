@@ -4,7 +4,7 @@
  */
 ?>
 
-<section class="image-text-section image-placement-<?php echo $image_placement; ?>">
+<section class="title-image-text-section image-placement-<?php echo $image_placement; ?> enlarge-image-<?php echo $enlarge_image; ?>">
 
 <?php // Title
 if ( $title ) { ?>

@@ -4,7 +4,7 @@
  */
 ?>
 
-<section id="hero-section-one" class="page-hero background-type-color" style="background-color: <?php echo $background_color; ?>">
+<section id="hero-section-one" class="page-hero background-type-color background-color-<?php echo $background_color; ?>">
 
   <div class="hero-title-container">
   

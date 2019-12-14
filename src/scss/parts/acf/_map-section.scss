@@ -1,5 +1,13 @@
 .map-section {
   .torque-map-container {
-    padding-top: 48%; // wide view
+    padding-top: 80%; // tall view
+
+    @include respond-to(tablet) {
+      padding-top: 68%; // medium view
+    }
+
+    @include respond-to(desktop) {
+      padding-top: 48%; // wide view
+    }
   }
 }

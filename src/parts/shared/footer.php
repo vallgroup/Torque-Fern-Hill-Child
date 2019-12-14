@@ -2,17 +2,20 @@
 
 // Copyright
 $copyright = get_field('copyright', 'options');
+$footer_logo = get_field('footer_logo', 'options');
 
 // Contact Form Section
-get_template_part( 'parts/shared/contact-form'); 
+get_template_part( 'parts/shared/contact-form');
 ?>
 
 <footer>
 
-  <div class="footer-block footer-logo">
+  <div class="footer-block footer-logo-container">
 
     <div class="footer-logo">
-      <?php get_template_part( 'parts/shared/logo', 'white'); ?>
+      <?php if ( $footer_logo ) { ?>
+      <img src="<?php echo $footer_logo; ?>" />
+      <?php } ?>
     </div>
 
     <div class="footer-contact-details">
@@ -22,19 +25,21 @@ get_template_part( 'parts/shared/contact-form');
   </div>
 
   <div class="footer-block footer-latest-work">
+    <div class="footer-col-title">Latest Work</div>
     <?php 
     // Case Study
-    $work_shortcode = '[torque_filtered_loop ';
-    $work_shortcode .= 'post_type="torque_case_study" ';
-    $work_shortcode .= 'posts_per_page="1" ';
-    $work_shortcode .= 'filters_types="dropdown_tax" ';
-    $work_shortcode .= 'filters_args="category"';
-    $work_shortcode .= ']';
-    echo do_shortcode( $work_shortcode );
+    $cs_shortcode = '[torque_filtered_loop ';
+    $cs_shortcode .= 'post_type="torque_case_study" ';
+    $cs_shortcode .= 'posts_per_page="1" ';
+    $cs_shortcode .= 'filters_types="dropdown_tax" ';
+    $cs_shortcode .= 'filters_args="category"';
+    $cs_shortcode .= ']';
+    echo do_shortcode( $cs_shortcode );
     ?>
   </div>
 
   <div class="footer-block footer-blog-post">
+    <div class="footer-col-title">What's on Our Mind</div>
     <?php 
     // Blog/thoughts
     $blog_shortcode = '[torque_filtered_loop ';

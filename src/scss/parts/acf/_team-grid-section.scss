@@ -1,0 +1,18 @@
+.team-grid-section {
+  // didn't add style here, in case no grid found (we don't want padding then)
+  .torque-image-grid-react-entry {
+    display: block;
+    text-align: center;
+    padding: 0 $bodyPadding1 $bodyPadding0;
+
+    .image-grid-content-wrapper {
+      h4 {
+        text-transform: uppercase;
+      }
+  
+      .image-grid-image-wrapper {
+        padding: 0 3vw 5vw;
+      }
+    }
+  }
+}
