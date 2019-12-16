@@ -3,27 +3,25 @@
  * Template: Content Columns Section
  */
 
-// configure background position style
-$background_position = '';
-if ( 'yes' === $background_graphic ) {
-  $background_graphic_elem = 'background-graphic';
-  $background_position = 'background-position-y: ' . $background_offset . '%';
-}
-
 // configure cols per row
-$cols_per_row_cls = $columns_per_row . '-cols-per-row';
+$cols_per_row_cls = 'col' . $columns_per_row;
 ?>
 
-<section class="content-columns-section <?php echo $background_cls; ?>" style="<?php echo $background_position; ?>">
+<section class="content-columns-section">
+
+  <?php // Background wrapper
+  if ( 'yes' === $background_graphic ) { ?>
+    <div class="full-width-background-graphic"></div>
+  <?php } ?>
 
   <?php if ( have_rows( $columns ) ): ?>
 
-    <div class="col-container <?php echo $cols_per_row_cls; ?>">
+    <div class="col-container">
 
       <?php // loop through the rows of data
       while ( have_rows( $columns ) ) : the_row(); ?>
 
-        <div class="col-wrapper">
+        <div class="col-wrapper <?php echo $cols_per_row_cls; ?>">
     
           <?php // get sub-fields for each row
           $image = get_sub_field('image');

@@ -66,7 +66,10 @@
   // Link to archive page
   .blog-archive-link {
     @extend %useGreenCtaStyle;
-    margin-top: 75px;
+
+    @include respond-to(desktop) {
+      margin-top: 75px;
+    }
     
     &.green-arrow-right:before {
       @extend %useGreenArrowRight;

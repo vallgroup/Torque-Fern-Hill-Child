@@ -90,6 +90,26 @@
   background-image: url("../statics/images/left-stain.png");
 }
 
+%useGreenStainFullBorder {
+  background-image: url("../statics/images/bottom-line.png"), url("../statics/images/lateral-line.png"), url("../statics/images/lateral-line.png"), url("../statics/images/top-line.png");
+  padding: 8px 5px;
+  background-position-x: left, 4px, calc(100% - 4px), left;
+  background-position-y: bottom, top, top, top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+%useGreenStainBottomBorder {
+  background-image: url("../statics/images/bottom-line.png");
+  padding: 0 0 8px 0;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 40px;
+}
+
 %useGreenCtaStyle {
   display: inline-block;
   margin-top: 10px;

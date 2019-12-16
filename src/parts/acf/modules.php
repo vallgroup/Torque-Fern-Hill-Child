@@ -113,9 +113,8 @@ if ( have_rows( $modules ) ):
       case 'content_columns_section' :
   
         $background_graphic = get_sub_field( 'background_graphic' );
-        $background_offset = get_sub_field( 'background_offset' );
-        $columns = 'columns'; // repeater field, see template file below
         $columns_per_row = get_sub_field( 'columns_per_row' );
+        $columns = 'columns'; // repeater field, see template file below
 
         include locate_template( '/parts/acf/modules/content-columns-section.php' );
   

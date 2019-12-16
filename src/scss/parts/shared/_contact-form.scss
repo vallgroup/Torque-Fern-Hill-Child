@@ -1,0 +1,64 @@
+.contact-form-section {
+  background-color: $grayFive;
+  display: inline-block;
+  width: 100%;
+
+  .contact-form-section-title {
+    text-align: center;
+    max-width: $maxWidth1;
+    margin-left: auto;
+    margin-right: auto;
+
+    h4 {
+      text-transform: uppercase;
+    }
+  }
+
+  .contact-form-section-content {
+    text-align: center;
+    max-width: $maxWidth0;
+    margin: 0 auto $bodyPadding0;
+  }
+
+  .contact-form-section-form {
+    max-width: $maxWidth1;
+    margin: 0 auto;
+
+    form {
+      width: 100%;
+
+      .grunion-field-label {
+        display: none;
+      }
+
+      input,
+      textarea {
+        color: $darkBlue;
+        -webkit-appearance: none;
+        border: none;
+        width: 100%;
+        outline: none;
+        font-size: initial;
+        padding: 0 24px;
+        background-color: transparent;
+      }
+
+      .grunion-field-name-wrap,
+      .grunion-field-email-wrap,
+      .grunion-field-phone-wrap,
+      .grunion-field-text-wrap {
+        @extend %useGreenStainBottomBorder;
+      }
+
+      .grunion-field-textarea-wrap {
+        @extend %useGreenStainFullBorder;
+      }
+
+      .contact-submit {
+        button[type=submit] {
+          @extend %blueBtnWithGreenText;
+        }
+      }
+    }
+  }
+}
