@@ -15,7 +15,15 @@
 
     .hover-slide-project-container {
       position: absolute;
-      bottom: -10px;
+      bottom: -6px;
+
+      @include respond-to(tablet) {
+        bottom: -9px;
+      }
+
+      @include respond-to(desktop) {
+        bottom: -10px;
+      }
 
       .project-title {
         color: $darkBlue;
@@ -54,7 +62,11 @@
     padding: $bodyPadding0 $bodyPadding1;
 
     .hover-slide-title {
-      width: 50%;
+      width: 100%;
+
+      @include respond-to(desktop) {
+        width: 50%;
+      }
 
       h2 {
         color: $white;
@@ -62,7 +74,11 @@
     }
 
     .hover-slide-content-inner-container {
-      width: 50%;
+      width: 100%;
+
+      @include respond-to(desktop) {
+        width: 50%;
+      }
 
       .hover-slide-content {
         @extend %useHoverSlideContentStyle;

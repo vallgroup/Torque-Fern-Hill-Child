@@ -6,10 +6,11 @@ header#header-style-1 {
   z-index: 10;
 
   @include respond-to(tablet) {
-    height: $headerHeightTablet;
+    height: auto;
+    // height: $headerHeightTablet;
   }
   @include respond-to(desktop) {
-    height: $headerHeightDesktop;
+    // height: $headerHeightDesktop;
   }
   
   .torque-header-content-wrapper {
@@ -22,12 +23,12 @@ header#header-style-1 {
     @include respond-to(tablet) {
       width: 100vw;
       flex-direction: column;
-      padding: 21px $bodyPadding1 20px;
+      padding: 19px $bodyPadding1 16px;
     }
     @include respond-to(desktop) {
       width: unset;
       flex-direction: row;
-      padding: 33px $bodyPadding1 26px;
+      padding: 30px $bodyPadding1 25px;
     }
 
     // Logo
@@ -40,6 +41,7 @@ header#header-style-1 {
       }
       @include respond-to(desktop) {
         text-align: left;
+        align-self: flex-start;
       }
 
       div {
@@ -68,6 +70,7 @@ header#header-style-1 {
     // Desktop/tablet menu
     .torque-header-menu-items-inline-wrapper {
       align-self: flex-end;
+      position: relative;
       
       @include respond-to-max(tablet) {
         display: none;
@@ -78,15 +81,21 @@ header#header-style-1 {
       }
       @include respond-to(desktop) {
         width: auto;
-        margin: 0 auto 15px;
+        margin: 69px auto 15px;
       }
 
       .torque-menu-items-inline {
+        transition: 0.2s;
+
         @include respond-to(tablet) {
           display: flex;
           flex-direction: row;
-          align-items: center;
+          align-items: flex-start;
           justify-content: space-evenly;
+        }
+
+        @include respond-to(desktop) {
+
         }
 
         .torque-menu-item-wrapper {
@@ -97,20 +106,33 @@ header#header-style-1 {
           }
 
           &.parent {
-            position: relative;
-            padding-right: 20px;
+
+            @include respond-to(desktop) {
+              padding-right: 20px;
+            }
+            
+            & > a { // get first a tag
+              position: relative;
+              display: block;
+
+              &:after {
+                content: '\F347';
+                font-family: dashicons;
+                font-size: 1.2em;
+                position: absolute;
+                right: -40%;
+                top: 0;
+              }
+            }
 
             .torque-menu-item-children-wrapper {
-              position: absolute;
               top: 100%;
-              left: -12%;
-              width: auto;
-              min-width: 200px;
+              left: 0;
+              width: 0;
+              height: 0;
               background-color: $white;
-              padding: 10px;
+              padding: 0;
               box-sizing: border-box;
-
-              border-bottom: 1px solid $grayOne;
 
               transition: opacity .4s ease-in-out;
               visibility: hidden;
@@ -121,30 +143,28 @@ header#header-style-1 {
               .torque-menu-item-wrapper {
                 display: block;
                 text-align: left;
-                padding: 5px 10px;
+                padding: 5px 10px 5px 0;
                 margin: 0 auto 0 0;
               }
             }
 
-            // down arrow
-            &:after {
-              content: '\F347';
-              font-family: dashicons;
-              font-size: 1.2em;
-              position: absolute;
-              right: -2.5px;
-              top: 0;
-            }
-
             &:hover {
+              border-bottom: 1px solid $grayOne;
+              margin-bottom: 20px;
+
+              @include respond-to(desktop) {
+                margin-bottom: 0;
+              }
+
               .torque-menu-item-children-wrapper {
-                top: 100%;
                 visibility: visible;
                 opacity: 1;
-
+                height: auto;
+                padding: 10px 0;
+                overflow-x: visible;
+                
                 .torque-menu-item-wrapper {
-                  display: block;
-                  text-align: left;
+                  min-width: 200px;
                 }
               }
             }
@@ -162,6 +182,8 @@ header#header-style-1 {
   .torque-header-menu-items-mobile {
     top: $headerHeightMobile;
     background-color: $white;
+    padding: $bodyPadding-1 $bodyPadding1;
+    box-sizing: border-box;
 
     @include respond-to(tablet) {
       top: $headerHeightTablet;
@@ -170,9 +192,77 @@ header#header-style-1 {
     @include respond-to(desktop) {
       top: $headerHeightDesktop;
     }
+    
+    &:not(.active) {
+      padding: 0 $bodyPadding1;
+    }
 
-    .torque-menu-item {
-      text-transform: uppercase;
+    .torque-menu-items-stacked {
+
+      // Only the top-level wrapper 
+      & > .torque-menu-item-wrapper {
+        padding: 7px 5px;
+
+        .torque-menu-item {
+          color: $grayThree;
+        }
+      }
+
+      .torque-menu-item-wrapper {
+        text-align: left;
+        font-size: 1.2857em; // ~18px
+  
+        &.parent {
+    
+          @include respond-to(desktop) {
+            padding-right: 20px;
+          }
+          
+          & > a { // get first a tag
+            position: relative;
+            display: inline-block;
+    
+            &:after {
+              content: '\F347';
+              color: $grayThree;
+              font-family: dashicons;
+              font-size: 1.2em;
+              position: absolute;
+              right: -40%;
+              top: 0;
+            }
+          }
+
+          // Collapsed mobile drop-down
+          .torque-menu-item-children-wrapper {
+            height: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+            border-bottom: 1px solid;
+            max-width: 80%;
+          }
+        }
+
+        // Expanded mobile drop-down
+        &.drop-down-active {
+          .torque-menu-item-children-wrapper {
+            height: auto;
+            opacity: 1;
+            visibility: visible;
+            padding: 1.5vw 0;
+
+            .torque-menu-item-wrapper {
+              padding: 5px 0;
+              font-size: 0.78em; // ~14px
+            }
+          }
+        }
+  
+        .torque-menu-item {
+          text-transform: uppercase;
+        }
+      }
     }
   }
 }

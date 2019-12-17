@@ -32,11 +32,10 @@
   position: absolute;
 
   left: auto;
-  right: -120px;
-  top: calc(100% - 42px);
-
-  height: 150%;
-  width: 18%;
+  right: -6vw;
+  top: 110%;
+  height: 160%;
+  width: 25%;
 
   background-image: url("../statics/images/arrow-bottom.png");  
   background-size: contain;
@@ -45,6 +44,17 @@
   background-repeat: no-repeat;
   // TODO add extend
   z-index: 9;
+
+
+  @include respond-to(tablet) {
+    top: 100%;
+  }
+  
+  @include respond-to(desktop) {
+    top: calc(100% - 42px);
+    height: 150%;
+    width: 18%;
+  }
 }
 
 %useGreenArrowRight {
@@ -126,7 +136,11 @@
   font-size: 1em;
   font-weight: 400;
   line-height: 1.38;
-  max-width: 274px;
+  max-width: 100%;
+
+  @include respond-to(desktop) {
+    max-width: 274px;
+  }
 }
 
 %blueBtnWithGreenText {

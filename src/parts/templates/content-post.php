@@ -18,39 +18,8 @@ $keep_reading_query = new WP_Query( array(
 
 ?>
 
-<div class="post-main" >
+<div class="post-main <?php echo $keep_reading_query->have_posts() ? 'has-sidebar' : ''; ?>" >
   <div class="post-content">
-    <div class="post-title" >
-      <h2><?php the_title(); ?></h2>
-
-      <?php if (isset($author_objs) && $author_objs && count($author_objs)) { ?>
-        <div class="post-terms authors" >
-
-          <?php foreach ($author_objs as $author) { ?>
-            <div class="post-term" >
-              <a href="<?php echo get_author_posts_url( $author->ID ); ?>">
-                <?php echo $author->display_name; ?>
-              </a>
-            </div>
-          <?php } ?>
-
-        </div>
-      <?php } ?>
-
-      <?php if (count($terms)) { ?>
-        <div class="post-terms" >
-
-          <?php foreach ($terms as $term) { ?>
-            <div class="post-term" >
-              <a href="/blog?<?php echo $term->taxonomy; ?>=<?php echo $term->term_id; ?>">
-                <?php echo $term->name; ?>
-              </a>
-            </div>
-          <?php } ?>
-
-        </div>
-      <?php } ?>
-    </div>
 
     <div class="the-content" >
       <?php the_content(); ?>
@@ -61,11 +30,13 @@ $keep_reading_query = new WP_Query( array(
 
   <?php  if ( $keep_reading_query->have_posts() ) { ?>
     <div class="post-keep-reading" >
-      <h3>Keep Reading</h3>
-
-    <?php while ( $keep_reading_query->have_posts() ) { $keep_reading_query->the_post();
-      get_template_part('parts/shared/loop-blog');
-    } ?>
+      <div class="keep-reading-title">Keep Reading</div>
+      
+      <div class="posts-wrapper">
+        <?php while ( $keep_reading_query->have_posts() ) { $keep_reading_query->the_post();
+          get_template_part('parts/shared/loop-blog');
+        } ?>
+      </div>
     </div>
 
   <?php

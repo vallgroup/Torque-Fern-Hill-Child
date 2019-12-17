@@ -2,8 +2,11 @@
 jQuery(document).ready(function($) {
 
   // Define general page variables
-	const is_root = location.pathname == '/';
+	const isRoot = location.pathname == '/';
   const currPage = window.location.pathname;
+  // Header variable
+  const headerSelector = 'header';
+  const mobileSubNavDropDownActiveSelector = 'drop-down-active';
   // Case Study variables
   const isCaseStudy = currPage.indexOf("/case-study/") > -1;
   const caseStudyNavContainerCls = '.case-study-sub-nav-container';
@@ -11,27 +14,53 @@ jQuery(document).ready(function($) {
   const caseStudyNavItemSelector = '.case-study-sub-nav-container .sub-nav-item';
   const activeCaseStudyNavItemSelector = 'active';
   let subNavOffset = $(caseStudyNavContainerCls).length ? $(caseStudyNavContainerCls).offset().top : 0; // offset of sub-nav, from top of screen
-  const scrollBuffer = $('header').outerHeight(); // height of header, used to calculate whether user scrolled past certain point
+  const scrollBuffer = $(headerSelector).outerHeight(); // height of header, used to calculate whether user scrolled past certain point
 
-  // All Pages
-  // stop page jumping around if parent menu link href is '#'
-  $('.torque-menu-item-wrapper.parent > a').click(function(e){
+  /**
+   * General Pages
+   */
+  $('.torque-header-menu-items-inline-wrapper .torque-menu-item-wrapper.parent > a').on('click', function(e){
+    // Ensure it is a drop-down menu, and not a link
     if ($(this).attr('href') === '#') {
-      // prevent default
+      // stop page jumping around if parent menu link href is '#'
       e.preventDefault();
-      // if open, close it
-      // if ($(this).find('.torque-menu-item-children-wrapper').css('visibility') === 'visible') {
-      //   $(this).find('.torque-menu-item-children-wrapper').css({
-      //     'visibility': 'hidden',
-      //     'opacity': '0'
-      //   });
-      // }
     }
   });
-  // On scroll
-  // $(window).scroll(function(){};
 
-  // Case Study Pages
+  // Moblie menu drop-down show/hide
+  $('.torque-header-menu-items-mobile .torque-menu-item-wrapper.parent > a').on('click', function(e){
+    // Ensure it is a drop-down menu, and not a link
+    if ($(this).attr('href') === '#') {
+      // stop page jumping around if parent menu link href is '#'
+      e.preventDefault();
+
+      const itemWrapper = $(this).closest('.parent');
+      
+      if (itemWrapper.hasClass(mobileSubNavDropDownActiveSelector)) {
+        itemWrapper.removeClass(mobileSubNavDropDownActiveSelector);
+      } else {
+        itemWrapper.addClass(mobileSubNavDropDownActiveSelector);
+      }
+    }
+  });
+
+  // On scroll
+  // $(window).scroll(function(){});
+  
+  // On resize
+  $(window).resize(function(){
+    // Reset variables for screen width and header height
+    headerHeight = $(headerSelector).outerHeight();
+    currScreenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    isMobile = currScreenWidth <= 767;
+    isTablet = currScreenWidth > 767 && currScreenWidth <= 1023;
+    isDesktop = currScreenWidth > 1023;
+  });
+
+
+  /**
+   * Case Study Pages
+   */
   if (isCaseStudy) {
     // Update sub-nav item styled based on clicked item
     // TODO: do this based on scroll position?
@@ -46,10 +75,13 @@ jQuery(document).ready(function($) {
 
     // On resize
     $(window).resize(function() {
-      // Reset the sub-nav offset, for mobile, tablet & desktop
-      subNavOffset = $(caseStudyNavContainerCls).offset().top;
-      // Fix/un-fix the sub-nav menu
-      alignSubNavBar();
+
+      if ( $(caseStudyNavContainerCls).length ) {
+        // Reset the sub-nav offset, for mobile, tablet & desktop
+        subNavOffset = $(caseStudyNavContainerCls).offset().top;
+        // Fix/un-fix the sub-nav menu
+        alignSubNavBar();
+      }
     });
 
     // On scroll

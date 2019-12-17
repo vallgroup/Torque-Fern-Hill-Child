@@ -22,13 +22,15 @@
 @import 'parts/shared/loop-blog';
 @import 'parts/shared/contact-form';
 
-// templates
-@import 'parts/templates/content-case_study';
-@import 'parts/templates/content-blog';
-
 // template titles
 @import 'parts/templates/titles/title-case_study';
 @import 'parts/templates/titles/title-blog';
+@import 'parts/templates/titles/title-post';
+
+// templates
+@import 'parts/templates/content-case_study';
+@import 'parts/templates/content-blog';
+@import 'parts/templates/content-post';
 
 // acf - pages
 @import 'parts/acf/hero-section-one';

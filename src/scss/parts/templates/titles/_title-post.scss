@@ -1,4 +1,4 @@
-.case-study-hero-section {
+.post-hero-section {
   text-align: center;
   background-color: $white;
   
@@ -12,14 +12,14 @@
     padding: ($headerHeightDesktop + 30px) $bodyPadding1 2vw;
   }
 
-  .case-study-title {
+  .post-title {
     margin: 0 auto 30px;
   }
 
-  .case-study-featured-image-wrapper {
+  .post-featured-image-wrapper {
     width: 100%;
     
-    .case-study-featured-image {
+    .post-featured-image {
       width: 100%;
       height: auto;
     }
