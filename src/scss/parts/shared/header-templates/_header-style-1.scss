@@ -7,10 +7,6 @@ header#header-style-1 {
 
   @include respond-to(tablet) {
     height: auto;
-    // height: $headerHeightTablet;
-  }
-  @include respond-to(desktop) {
-    // height: $headerHeightDesktop;
   }
   
   .torque-header-content-wrapper {
