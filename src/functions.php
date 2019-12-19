@@ -102,6 +102,9 @@ function torque_enqueue_child_styles() {
         array( $parent_style, $parent_main_style ),
         wp_get_theme()->get('Version')
     );
+
+    // load dashicons for non-logged-in users
+    wp_enqueue_style('dashicons');
 }
 
 // enqueue child scripts after parent script
