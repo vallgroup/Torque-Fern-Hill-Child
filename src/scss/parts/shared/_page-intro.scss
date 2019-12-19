@@ -8,7 +8,7 @@
   }
 
   @include respond-to(desktop) {
-    padding: ($headerHeightDesktop + 0px) $bodyPadding1 50px;
+    padding: ($headerHeightDesktop + 30px) $bodyPadding1 50px;
   }
 
   h1 {
