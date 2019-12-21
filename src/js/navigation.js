@@ -15,6 +15,7 @@ jQuery(document).ready(function($) {
   const activeCaseStudyNavItemSelector = 'active';
   let subNavOffset = $(caseStudyNavContainerCls).length ? $(caseStudyNavContainerCls).offset().top : 0; // offset of sub-nav, from top of screen
   const scrollBuffer = $(headerSelector).outerHeight(); // height of header, used to calculate whether user scrolled past certain point
+  const adminBarBuffer = $('#wpadminbar').length ? $('#wpadminbar').outerHeight() : 0; // offset of sub-nav, from top of screen
 
   /**
    * General Pages
@@ -96,7 +97,7 @@ jQuery(document).ready(function($) {
    * Checks to see whether the sub-nav menu bar should be fixed or not
    */
   function alignSubNavBar() {
-    const scrollDifference = checkScrollDifference(scrollBuffer, subNavOffset);
+    const scrollDifference = checkScrollDifference((scrollBuffer + adminBarBuffer), subNavOffset);
     if (scrollDifference >= 0) {
       $(caseStudyNavContainerCls).addClass(fixedCaseStudyNavContainerCls);
     } else {
