@@ -2,9 +2,12 @@
 /**
  * Template: Image & Text Section
  */
+
+$image_placement_class = $image_placement ? 'image-placement-' . $image_placement : '';
+$enlarge_image_class = $enlarge_image ? 'enlarge-image-' . $enlarge_image : '';
 ?>
 
-<section class="title-image-text-section image-placement-<?php echo $image_placement; ?> enlarge-image-<?php echo $enlarge_image; ?>">
+<section class="title-image-text-section <?php echo $image_placement_class; ?> <?php echo $enlarge_image_class; ?>">
 
 <?php // Title
 if ( $title ) { ?>
