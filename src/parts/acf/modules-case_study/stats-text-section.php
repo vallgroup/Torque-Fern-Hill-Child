@@ -2,9 +2,10 @@
 /**
  * Template: Statistics & Text Section
  */
+$stats_placement_class = $stats_placement ? 'stats-placement-' . $stats_placement : '';
 ?>
 
-<section class="stats-text-section stats-placement-<?php echo $image_placement; ?>">
+<section class="stats-text-section <?php echo $stats_placement_class; ?>">
 
   <?php // Sub Navigation
   $stats_items = 'stats';

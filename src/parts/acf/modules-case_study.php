@@ -57,6 +57,7 @@ if ( have_rows( $case_study_modules ) ):
 
       $stats = get_sub_field( 'stats' );
       $content = get_sub_field( 'content' );
+      $stats_placement = get_sub_field( 'stats_placement' );
 
       include locate_template( '/parts/acf/modules-case_study/stats-text-section.php' );
 
