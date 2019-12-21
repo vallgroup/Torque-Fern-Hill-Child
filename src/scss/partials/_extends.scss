@@ -32,10 +32,10 @@
   position: absolute;
 
   left: auto;
-  right: -6vw;
-  top: 110%;
-  height: 160%;
-  width: 25%;
+  right: -7vw;
+  top: 80%;
+  height: 200%;
+  width: 20%;
 
   background-image: url("../statics/images/arrow-bottom.png");  
   background-size: contain;
@@ -47,11 +47,14 @@
 
 
   @include respond-to(tablet) {
-    top: 100%;
+    top: 80%;
+    height: 135%;
+    width: 20%;
   }
   
   @include respond-to(desktop) {
     top: calc(100% - 42px);
+    right: -9vw;
     height: 150%;
     width: 18%;
   }
