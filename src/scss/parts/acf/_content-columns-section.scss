@@ -16,6 +16,10 @@
     .col-wrapper {
       padding: $bodyPadding-1 3vw;
 
+      @include respond-to-max(desktop) {
+        width: 100%;
+      }
+
       img {
         width: 100%;
         height: auto;
