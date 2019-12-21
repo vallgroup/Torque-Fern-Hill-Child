@@ -33,4 +33,33 @@
     max-width: 975px;
     margin: 45px auto 0;
   }
+
+  // Split background color
+  &.split-background {
+    // Blue top, white bottom
+    &.primary-background-color-darkBlue {
+      &.secondary-background-color-white {
+        @include backgroundGradient($darkBlue, $white, 'top');
+      }
+    }
+    
+    // White top, blue bottom
+    &.primary-background-color-white {
+      .secondary-background-color-darkBlue {
+        @include backgroundGradient($white, $darkBlue, 'top');
+      }
+    }
+  }
+
+  // Single background color
+  &:not(.split-background) {
+    // All blue
+    &.primary-background-color-darkBlue {
+      background-color: $darkBlue;
+    }
+    // All blue
+    &.primary-background-color-white {
+      background-color: $white;
+    }
+  }
 }

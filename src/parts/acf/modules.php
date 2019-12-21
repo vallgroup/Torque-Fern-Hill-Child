@@ -79,13 +79,13 @@ if ( have_rows( $modules ) ):
 
       case 'content_section_one' :
 
+        $split_background_color = get_sub_field( 'split_background_color' );
+        $primary_background_color = get_sub_field( 'primary_background_color' );
+        $secondary_background_color = get_sub_field( 'secondary_background_color' );
         $title = get_sub_field( 'title' );
         $content = get_sub_field( 'content' );
         $cta = get_sub_field( 'call_to_action' );
         $image = get_sub_field( 'image' );
-        $split_background_color = get_sub_field( 'split_background_color' );
-        $primary_background_color = get_sub_field( 'primary_background_color' );
-        $secondary_background_color = get_sub_field( 'secondary_background_color' );
 
         include locate_template( '/parts/acf/modules/content-section-one.php' );
 
