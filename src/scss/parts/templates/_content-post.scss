@@ -14,6 +14,12 @@
       }
     }
 
+    .wp-block-image {
+      figcaption {
+        text-align: left;
+      } 
+    }
+
     .torque-pagination {
       display: none;
     }
