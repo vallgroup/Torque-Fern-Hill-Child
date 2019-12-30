@@ -69,7 +69,8 @@ if ( have_rows( $case_study_modules ) ):
       $placement = get_sub_field( 'placement' );
       $background_color = get_sub_field( 'background_color' );
 
-      include locate_template( '/parts/acf/modules-case_study/block-quote-section.php' );
+        // NB: located in general modules folder
+      include locate_template( '/parts/acf/modules/block-quote-section.php' );
 
       break;
 
