@@ -62,7 +62,7 @@
       top: $headerHeightTablet + 1px;
     }
     @include respond-to(desktop) {
-      top: $headerHeightDesktop + 1px;
+      top: $headerHeightDesktop + 2px;
     }
   }
 }
@@ -74,10 +74,10 @@ body.admin-bar {
       top: $headerHeightMobile + 1px + 46px;
 
       @include respond-to(tablet) {
-        top: $headerHeightTablet + 1px + 32px;
+        top: $headerHeightTablet + 1px + 46px;
       }
       @include respond-to(desktop) {
-        top: $headerHeightDesktop + 1px + 32px;
+        top: $headerHeightDesktop + 2px + 32px;
       }
     }
   }
